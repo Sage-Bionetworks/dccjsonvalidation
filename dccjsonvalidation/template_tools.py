@@ -50,8 +50,8 @@ def template_csv(template_file_name, template_df, dictionary_df, values_df):
     Function: template_csv
 
     Purpose: Write csv files as follows:
-             - <file name>_template.csv: template file with column names to be
-                   used for entering data
+             - <file name>.csv: template file with column names to be used
+                   for entering data
              - <file name>_dictionary.csv: file with the definitions of the
                    columns in the "_template" file
              - <file name>_Values: file with any controlled vocabulary lists
