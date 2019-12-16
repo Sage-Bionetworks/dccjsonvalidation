@@ -524,7 +524,8 @@ def walk_schema(schema_obj, schema_output, first_call):
                 # dictionaries, e.g. in enum statements or if statements, or
                 # lists of items, e.g. in required statements.
                 if isinstance(element_val, dict):
-                    schema_output = walk_schema(element_val, schema_output, False)
+                    schema_output = walk_schema(element_val, schema_output,
+                                                False)
                     schema_output += f"}}{element_comma}\n"
 
                     if (element_number + 1) == list_len:
