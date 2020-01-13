@@ -418,8 +418,8 @@ def set_comma_val(element_number, object_length):
              This function is used by other functions that create JSON schemas
              from Python dictionaries.
 
-    Arguments: the number of the current element in the object
-               the length of the object
+    Arguments: element_number: the number of the current element in the object
+               object_length: the length of the object
 
     Returns: - a comma, if the element is not the last one in the object
              - a character null value if the element is the last one in the
@@ -488,11 +488,13 @@ def walk_schema(schema_obj, schema_output, first_call):
              function is called, so the first_call parameter should always be
              set to True when called in open code.
 
-    Arguments: - The Python dictionary representation of a JSON schema
-               - A character string for the output that gets appended to
-               - A Boolean value designating whether the current iteration is
-                 the first call to the function. It is internally set to False
-                 in all subsequent calls.
+    Arguments: schema_obj: The Python dictionary representation of a JSON
+                           schema
+               schema_output: A character string for the output that gets
+                              appended to
+               first_call: A Boolean value designating whether the current
+                           iteration is the first call to the function. It is
+                           internally set to False in all subsequent calls.
 
     Returns: A character string of output
     """
@@ -524,8 +526,7 @@ def walk_schema(schema_obj, schema_output, first_call):
                 # dictionaries, e.g. in enum statements or if statements, or
                 # lists of items, e.g. in required statements.
                 if isinstance(element_val, dict):
-                    schema_output = walk_schema(element_val, schema_output,
-                                                False)
+                    schema_output = walk_schema(element_val, schema_output, False)
                     schema_output += f"}}{element_comma}\n"
 
                     if (element_number + 1) == list_len:
